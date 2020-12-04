@@ -1,0 +1,53 @@
+{
+    "name": "farouter/farouter",
+    "type": "library",
+    "description": "",
+    "keywords": [
+        "cmf"
+    ],
+    "homepage": "https://farouter.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jaroslaw Goszowski",
+            "email": "goszowski@gmail.com",
+            "homepage": "https://github.com/goszowski"
+        }
+    ],
+    "require": {
+        "php": ">=8",
+        "illuminate/config": "^8.0",
+        "illuminate/contracts": "^8.0",
+        "illuminate/http": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/translation": "^8.0",
+        "illuminate/validation": "^8.0",
+        "illuminate/view": "^8.0"
+    },
+    "require-dev": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "Farouter\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Farouter\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Farouter\\Providers\\FarouterServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
