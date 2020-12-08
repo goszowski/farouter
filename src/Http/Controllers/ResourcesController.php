@@ -10,4 +10,9 @@ class ResourcesController extends Controller
     {
         return view('farouter::resources.index');
     }
+
+    public function create() : View
+    {
+        return view('farouter::resources.create');
+    }
 }
