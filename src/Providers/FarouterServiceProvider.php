@@ -3,6 +3,7 @@
 namespace Farouter\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class FarouterServiceProvider extends ServiceProvider
 {
@@ -45,11 +46,6 @@ class FarouterServiceProvider extends ServiceProvider
             $this->farouterBasePath . '/public' => public_path('vendor/farouter'),
         ], 'public');
 
-        // $this->routes(function () {
-        //     Route::prefix(config('farouter.admin.prefix'))
-        //         ->middleware('web')
-        //         ->namespace($this->namespace)
-        //         ->group($this->farouterBasePath . '/routes/api.php');
-        // });
+        Blade::componentNamespace('Farouter\\View\\Components', 'farouter');
     }
 }

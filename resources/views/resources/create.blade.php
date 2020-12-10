@@ -1,21 +1,14 @@
 @extends('farouter::app')
 
 @section('content')
-<div class="page-header d-print-none">
-    <div class="row align-items-center">
-        <div class="col">
-            <div class="page-pretitle">Resources</div>
-            <h2 class="page-title">Create new resource</h2>
-        </div>
-        <div class="col-auto ms-auto d-print-none">
-            <div class="btn-list">
-                <a href="{{ route('farouter.resources.index') }}" class="btn btn-white">
-                    All resources
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+
+<x-farouter::page-header pretitle="Resources" title="Create new resource">
+    <x-slot name="buttons">
+        <x-farouter::button type="link" href="{{ route('farouter.resources.index') }}" class="btn-white">
+            All resources
+        </x-farouter::button>
+    </x-slot>
+</x-farouter::page-header>
 
 <div class="row row-cards">
     <div class="col-12">
