@@ -41,7 +41,7 @@
             });
 
             var buildLayout = function() {
-                Ladda.bind('[data-ladda-button]');
+                Ladda.bind('[data-ladda-button]', {timeout: 3000});
             };
 
             buildLayout();
