@@ -13,6 +13,21 @@
     </x-slot>
 </x-farouter::page-header>
 
+@if(!count($resources))
+<div class="empty">
+    <div class="empty-img"><img src="{{ asset('vendor/farouter/static/illustrations/undraw_quitting_time_dm8t.svg') }}" alt=""></div>
+    <p class="empty-title">Resources are managed from here</p>
+    <p class="empty-subtitle text-muted">You don't have any resources yet.</p>
+    <div class="empty-action">
+        <x-farouter::button type="link" href="{{ route('farouter.resources.create') }}" class="btn-primary">
+            <x-slot name="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </x-slot>
+            Create new resource
+        </x-farouter::button>
+    </div>
+</div>
+@else
 <div class="row row-cards">
     <div class="col-12">
         <div class="card">
@@ -95,4 +110,5 @@
         </li>
     </ul>
 </div>
+@endif
 @endsection
