@@ -13,6 +13,7 @@ Route::group(['prefix'=>config('farouter.admin.prefix'), 'middleware'=>['web', '
         Route::get('/', [ResourcesController::class, 'index'])->name('index');
         Route::get('/create', [ResourcesController::class, 'create'])->name('create');
         Route::post('/', [ResourcesController::class, 'store'])->name('store');
+        Route::get('/{resource}', [ResourcesController::class, 'edit'])->name('edit');
         Route::patch('/{resource}', [ResourcesController::class, 'update'])->name('update');
         Route::delete('/{resource}', [ResourcesController::class, 'delete'])->name('delete');
 

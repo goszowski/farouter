@@ -12,26 +12,26 @@
 
 <div class="row row-cards">
     <div class="col-12">
-        <form action="" class="card">
+        <form action="{{ route('farouter.resources.store') }}" method="post" class="card">
+            @csrf
+
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label">Text</label>
-                    <input type="text" class="form-control" name="example-text-input" placeholder="Input placeholder">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Input placeholder" value="{{ old('name') }}">
+                    @error('name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Text</label>
-                    <input type="text" class="form-control" name="example-text-input" placeholder="Input placeholder">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Text</label>
-                    <input type="text" class="form-control" name="example-text-input" placeholder="Input placeholder">
-                </div>
-
-                <button class="btn btn-outline-primary">Create</button>
+                <x-farouter::button type="submit" class="btn-outline-primary">
+                    Create
+                </x-farouter::button>
             </div>
         </form>
     </div>
 </div>
+
+{!! JsValidator::formRequest('Farouter\Http\Requests\Resources\StoreRequest') !!}
+
 @endsection
