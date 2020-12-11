@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="{{ asset('vendor/farouter/tabler/css/tabler.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/farouter/nprogress/nprogress.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/farouter/ladda/ladda-themeless.min.css') }}">
 </head>
 <body class="antialiased">
 
@@ -16,6 +17,10 @@
 
     <script src="{{ asset('vendor/farouter/tabler/js/vendors/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('vendor/farouter/nprogress/nprogress.js') }}"></script>
+
+    <script src="{{ asset('vendor/farouter/ladda/spin.min.js') }}"></script>
+    <script src="{{ asset('vendor/farouter/ladda/ladda.min.js') }}"></script>
+    
     <script src="{{ asset('vendor/farouter/jquery.pjax.min.js') }}"></script>
 
     <script>
@@ -32,7 +37,14 @@
 
             $(document).on('pjax:complete', function() {
                 NProgress.done();
+                buildLayout();
             });
+
+            var buildLayout = function() {
+                Ladda.bind('[data-ladda-button]');
+            };
+
+            buildLayout();
         });
     </script>
 </body>
