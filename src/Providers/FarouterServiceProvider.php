@@ -4,6 +4,7 @@ namespace Farouter\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Routing\Router;
 
 class FarouterServiceProvider extends ServiceProvider
 {
@@ -47,5 +48,8 @@ class FarouterServiceProvider extends ServiceProvider
         ], 'public');
 
         Blade::componentNamespace('Farouter\\View\\Components', 'farouter');
+
+        $router = $this->app->make(Router::class);
+        $router->aliasMiddleware('filter-if-pjax', \Spatie\Pjax\Middleware\FilterIfPjax::class);
     }
 }

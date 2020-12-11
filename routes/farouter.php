@@ -6,7 +6,7 @@ use Farouter\Http\Controllers\{
     FieldsController,
 };
 
-Route::group(['prefix'=>config('farouter.admin.prefix'), 'middleware'=>['web'], 'as'=>'farouter.'], function() {
+Route::group(['prefix'=>config('farouter.admin.prefix'), 'middleware'=>['web', 'filter-if-pjax'], 'as'=>'farouter.'], function() {
 
     Route::group(['prefix'=>'resources', 'as'=>'resources.'], function() {
 

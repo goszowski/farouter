@@ -5,6 +5,8 @@
         type="{{ $type }}"
     @endif
 
+    data-pjax
+
     >
     {{ $icon ?? null }} {{ $slot }}
 </{{ $tag }}>

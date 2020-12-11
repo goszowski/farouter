@@ -69,7 +69,7 @@
         </div>
     </aside>
     <div class="content">
-        <div class="container-xl">
+        <div class="container-xl" id="pjax-container">
             @yield('content')
         </div>
         <footer class="footer footer-transparent d-print-none">

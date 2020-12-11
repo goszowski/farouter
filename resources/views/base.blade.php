@@ -13,5 +13,15 @@
 
     @yield('app')
 
+    <script src="{{ asset('vendor/farouter/tabler/js/vendors/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('vendor/farouter/jquery.pjax.min.js') }}"></script>
+
+    <script>
+        $(function() {
+            $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container', {
+                timeout: 3000,
+            });
+        });
+    </script>
 </body>
 </html>

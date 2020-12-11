@@ -22,7 +22,8 @@
         "illuminate/support": "^8.0",
         "illuminate/translation": "^8.0",
         "illuminate/validation": "^8.0",
-        "illuminate/view": "^8.0"
+        "illuminate/view": "^8.0",
+        "spatie/laravel-pjax": "^2.1"
     },
     "require-dev": {
         
