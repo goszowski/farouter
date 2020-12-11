@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=8",
+        "php": "^7.4|^8.0",
         "illuminate/config": "^8.0",
         "illuminate/contracts": "^8.0",
         "illuminate/http": "^8.0",
@@ -24,6 +24,7 @@
         "illuminate/validation": "^8.0",
         "illuminate/view": "^8.0",
         "spatie/laravel-pjax": "^2.1",
+        "laravel/fortify": "^1.7",
         "spatie/laravel-translatable": "^4.6",
         "proengsoft/laravel-jsvalidation": "^4.4"
     },
