@@ -54,6 +54,7 @@ class FarouterServiceProvider extends ServiceProvider
         $this->loadViewsFrom($this->farouterBasePath . '/resources/views', 'farouter');
 
         $this->loadRoutesFrom($this->farouterBasePath . '/routes/farouter.php');
+        $this->loadRoutesFrom($this->farouterBasePath . '/routes/public.php');
 
         $this->loadMigrationsFrom($this->farouterBasePath . '/database/migrations');
 
@@ -65,6 +66,11 @@ class FarouterServiceProvider extends ServiceProvider
 
         $router = $this->app->make(Router::class);
         $router->aliasMiddleware('filter-if-pjax', \Spatie\Pjax\Middleware\FilterIfPjax::class);
+        $router->aliasMiddleware('localize', \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class);
+        $router->aliasMiddleware('localizationRedirect', \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class);
+        $router->aliasMiddleware('localeSessionRedirect', \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class);
+        $router->aliasMiddleware('localeCookieRedirect', \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class);
+        $router->aliasMiddleware('localeViewPath', \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class);
 
         Event::listen(ResourceCreated::class, [CreateResourceTable::class, 'handle']);
         Event::listen(ResourceCreated::class, [CreateRequiredControls::class, 'handle']);
