@@ -6,17 +6,21 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Event;
+
 use Farouter\Events\{
     Resource\Created as ResourceCreated,
     Resource\Deleted as ResourceDeleted,
     Control\Created as ControlCreated,
 };
+
 use Farouter\Listeners\{
     Resource\CreateResourceTable,
     Resource\DeleteResourceTable,
     Resource\CreateRequiredControls,
     Control\CreateDatabaseColumn,
 };
+
+use Farouter\Console\Commands\Setup\SetupCommand;
 
 class FarouterServiceProvider extends ServiceProvider
 {
@@ -77,5 +81,12 @@ class FarouterServiceProvider extends ServiceProvider
         Event::listen(ResourceDeleted::class, [DeleteResourceTable::class, 'handle']);
 
         Event::listen(ControlCreated::class, [CreateDatabaseColumn::class, 'handle']);
+
+        // Register the command if we are using the application via the CLI
+        if($this->app->runningInConsole()){
+            $this->commands([
+                SetupCommand::class,
+            ]);
+        }
     }
 }

@@ -33,6 +33,7 @@ class CreateResourceTable
 
         Schema::create(Str::plural($resource->name), function (Blueprint $table) {
             $table->id();
+            $table->foreignId('node_id')->index()->constrained();
             $table->timestamps();
         });
     }

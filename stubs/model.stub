@@ -1,0 +1,9 @@
+<?php
+
+namespace App\Models;
+
+use Farouter\Models\AbstractData;
+
+class %Model% extends AbstractData {
+
+}
