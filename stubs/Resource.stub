@@ -1,0 +1,9 @@
+<?php
+
+namespace DummyNamespace;
+
+use Farouter\Models\AbstractData;
+
+class DummyResource extends AbstractData {
+
+}

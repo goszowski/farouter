@@ -51,7 +51,17 @@ class SetupCommand extends Command
 
         Root::create([
             'is_active' => true,
-            'parent_id' => 1,
+            'name' => 'Головна сторінка',
+            'parent_id' => null,
+        ]);
+
+        Root::create([
+            'is_active' => true,
+            'name' => [
+                'uk' => 'Головна сторінка',
+                'ru' => 'Главная страница',
+            ],
+            'parent_id' => null,
         ]);
     }
 }

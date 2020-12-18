@@ -17,10 +17,14 @@ use Farouter\Listeners\{
     Resource\CreateResourceTable,
     Resource\DeleteResourceTable,
     Resource\CreateRequiredControls,
+    Resource\CreateModelFile,
     Control\CreateDatabaseColumn,
 };
 
-use Farouter\Console\Commands\Setup\SetupCommand;
+use Farouter\Console\Commands\{
+    Setup\SetupCommand,
+    Make\ResourceMakeCommand,
+};
 
 class FarouterServiceProvider extends ServiceProvider
 {
@@ -78,6 +82,7 @@ class FarouterServiceProvider extends ServiceProvider
 
         Event::listen(ResourceCreated::class, [CreateResourceTable::class, 'handle']);
         Event::listen(ResourceCreated::class, [CreateRequiredControls::class, 'handle']);
+        Event::listen(ResourceCreated::class, [CreateModelFile::class, 'handle']);
         Event::listen(ResourceDeleted::class, [DeleteResourceTable::class, 'handle']);
 
         Event::listen(ControlCreated::class, [CreateDatabaseColumn::class, 'handle']);
@@ -86,6 +91,7 @@ class FarouterServiceProvider extends ServiceProvider
         if($this->app->runningInConsole()){
             $this->commands([
                 SetupCommand::class,
+                ResourceMakeCommand::class,
             ]);
         }
     }
