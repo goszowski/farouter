@@ -65,6 +65,13 @@
                         </div>
                     </li>
                 </ul>
+                <div>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        @method('POST')
+                        <button class="btn" type="submit">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
     </aside>
